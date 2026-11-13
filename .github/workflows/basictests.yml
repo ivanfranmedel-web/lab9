@@ -1,0 +1,15 @@
+name: basictests
+on:
+  push:
+    branches: [ main ]
+jobs:
+  lab9-basic-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test 1 (expect PASS)
+        run: bash validate-data.sh Ivan 0871234567
+      - name: Test 2 (expect FAIL)
+        run: bash validate-data.sh Ivanfranciscomedel 0871234567
+      - name: Test 3 (expect FAIL)
+        run: bash validate-data.sh Ivan 08712345678
